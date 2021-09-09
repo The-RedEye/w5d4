@@ -9,20 +9,22 @@
 #
 class User < ApplicationRecord
 
-
+    #User.first.enrollments
     has_many :enrollments,
         primary_key: :id,
         foreign_key: :student_id,
         class_name: :Enrollment
 
-    # has_many :enrollment
-    # has_many :course, through: :enrollment
+    #User.first.enrolled_courses
+    has_many :enrolled_courses,
+        through: :enrollments,
+        source: :course
 
 
-        # through: :course
-        # source: :prereq_id
 
-    # has_many :
+
+
+
 
    
 end
